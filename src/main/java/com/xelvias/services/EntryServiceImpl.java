@@ -25,6 +25,12 @@ public class EntryServiceImpl implements EntryService {
         return entryDAO.findAllEntries();
     }
 
+    @Override
+    public List<Entry> getEntries(String fabric, String component, String size, int maxsize) {
+        return entryDAO.findEntries(fabric,component,size,maxsize);
+    }
+
+
     public Entry getSample(){
         return new Entry();
     }

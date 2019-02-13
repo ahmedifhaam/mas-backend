@@ -100,7 +100,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-
+                .antMatchers("/uploadFile").permitAll()
+                .antMatchers("/predict").permitAll()
+                .antMatchers("uploads/*").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/entry").permitAll()
                 .antMatchers("/anonymous*").anonymous()

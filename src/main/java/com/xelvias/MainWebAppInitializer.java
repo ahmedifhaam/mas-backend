@@ -10,13 +10,18 @@ import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
+import javax.servlet.annotation.MultipartConfig;
 
 //public class MainWebAppInitializer {
 public class MainWebAppInitializer
         implements WebApplicationInitializer {
+    private static final String TMP_FOLDER = "/tmp";
+    private int MAX_UPLOAD_SIZE = 5 * 1024 * 1024;
+
     public void onStartup(ServletContext servletContext) throws ServletException {
         AnnotationConfigWebApplicationContext root = new AnnotationConfigWebApplicationContext();
 
@@ -26,6 +31,10 @@ public class MainWebAppInitializer
         ServletRegistration.Dynamic appServlet =
                 servletContext.addServlet("mvc",new DispatcherServlet(new GenericWebApplicationContext()));
 
+        MultipartConfigElement multipartConfigElement = new MultipartConfigElement(TMP_FOLDER,MAX_UPLOAD_SIZE,
+                MAX_UPLOAD_SIZE*2,MAX_UPLOAD_SIZE/2);
+
+        appServlet.setMultipartConfig(multipartConfigElement);
         appServlet.setLoadOnStartup(1);
         appServlet.addMapping("/");
 

@@ -10,5 +10,7 @@ import java.util.List;
 public interface EntryService {
     void saveEntry(Entry entry);
     List<Entry> getAll();
+    List<Entry> getEntries(String fabric,String component,String size, int maxsize);
     Entry getSample();
+
 }

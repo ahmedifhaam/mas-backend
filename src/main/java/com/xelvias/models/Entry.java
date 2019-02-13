@@ -11,6 +11,15 @@ public class Entry implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
 
+    @Column(name= "fabric",nullable = false)
+    String fabric;
+
+    @Column(name = "component",nullable = false)
+    String component;
+
+    @Column(name = "size",nullable = false)
+    String size;
+
     @Column(name = "val1",nullable = false)
     double val1;
 
@@ -71,6 +80,24 @@ public class Entry implements Serializable {
 
     @Column(name = "val20",nullable = false)
     double val20;
+
+    @Column(name = "val21",nullable = false)
+    double val21;
+
+    @Column(name = "val22",nullable = false)
+    double val22;
+
+    @Column(name = "val23",nullable = false)
+    double val23;
+
+    @Column(name = "val24",nullable = false)
+    double val24;
+
+    @Column(name = "val25",nullable = false)
+    double val25;
+
+    @Column(name = "val26",nullable = false)
+    double val26;
 
 
     public long getId() {
@@ -239,5 +266,77 @@ public class Entry implements Serializable {
 
     public void setVal20(double val20) {
         this.val20 = val20;
+    }
+
+    public String getFabric() {
+        return fabric;
+    }
+
+    public void setFabric(String fabric) {
+        this.fabric = fabric;
+    }
+
+    public String getComponent() {
+        return component;
+    }
+
+    public void setComponent(String component) {
+        this.component = component;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public double getVal21() {
+        return val21;
+    }
+
+    public void setVal21(double val21) {
+        this.val21 = val21;
+    }
+
+    public double getVal22() {
+        return val22;
+    }
+
+    public void setVal22(double val22) {
+        this.val22 = val22;
+    }
+
+    public double getVal23() {
+        return val23;
+    }
+
+    public void setVal23(double val23) {
+        this.val23 = val23;
+    }
+
+    public double getVal24() {
+        return val24;
+    }
+
+    public void setVal24(double val24) {
+        this.val24 = val24;
+    }
+
+    public double getVal25() {
+        return val25;
+    }
+
+    public void setVal25(double val25) {
+        this.val25 = val25;
+    }
+
+    public double getVal26() {
+        return val26;
+    }
+
+    public void setVal26(double val26) {
+        this.val26 = val26;
     }
 }

@@ -35,7 +35,8 @@ public class WebConfig extends WebMvcConfigurerAdapter { //for spr version > 5 w
     @Override
     public void addResourceHandlers(
             ResourceHandlerRegistry registry) {
-
+        registry.addResourceHandler("/assets**")
+                .addResourceLocations("/WEB-INF/view/angular/dist/assets");
         registry.addResourceHandler("/static/**")
                 .addResourceLocations("/WEB-INF/view/angular/dist/angular/");
         registry.addResourceHandler("/*.js")
@@ -44,7 +45,11 @@ public class WebConfig extends WebMvcConfigurerAdapter { //for spr version > 5 w
                 .addResourceLocations("/WEB-INF/view/angular/dist/angular/");
         registry.addResourceHandler("/*.ico")
                 .addResourceLocations("/WEB-INF/view/angular/dist/angular/");
+        registry.addResourceHandler("/*.png")
+                .addResourceLocations("/WEB-INF/view/angular/dist/angular/");
         registry.addResourceHandler("/index.html")
                 .addResourceLocations("/WEB-INF/view/angular/dist/angular/index.html");
     }
+
+
 }
